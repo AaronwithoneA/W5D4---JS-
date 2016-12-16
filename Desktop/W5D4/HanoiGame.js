@@ -59,26 +59,14 @@ class Game {
 
 
   run(completionCallback) {
-    if (!game.isWon()) {
+    if (!this.isWon()) {
       this.promptMove();
     }
     else {
       reader.close();
-      this.won(completionCallback);
+      completionCallback();
     }
-  }
-
-  won(completionCallback) {
-    completionCallback();
   }
 }
 
-
-
-const game = new Game;
-// game.print();
-// game.promptMove();
-// game.print();
-
-
-game.run(() => console.log("You won!"));
+module.exports = Game;
